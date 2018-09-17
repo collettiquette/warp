@@ -23,3 +23,4 @@ main() {
   install_vimrc
 }
 
+main "$@"
