@@ -21,11 +21,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Typescript
-filetype plugin on
-au BufRead,BufNewFile *.ts  setlocal filetype=typescript
-autocmd FileType typescript setlocal completeopt+=menu,preview
-
 " Show colored line at 81 characters
 if exists('+colorcolumn')
   set colorcolumn=81
