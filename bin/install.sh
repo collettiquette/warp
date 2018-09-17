@@ -9,12 +9,18 @@ download_files() {
 }
 
 install_tmux_conf() {
-  mv ~/.tmux.conf ~/.tmux.conf.bak
+  if [[ -e ~/.tmux.conf ]]; then
+    mv ~/.tmux.conf ~/.tmux.conf.bak
+  fi
+
   mv ~/.warp/tmux.conf ~/.tmux.conf
 }
 
 install_vimrc() {
-  mv ~/.vimrc ~/.vimrc.bak
+  if [[ -e ~/.vimrc ]]; then
+    mv ~/.vimrc ~/.vimrc.bak
+  fi
+
   mv ~/.warp/vimrc ~/.vimrc
 }
 
