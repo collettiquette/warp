@@ -2,6 +2,8 @@
 
 download_files() {
   mkdir ~/.warp
+  mkdir ~/.warp/bin
+
   curl https://raw.githubusercontent.com/collettiquette/warp/master/config/vimrc --output ~/.warp/vimrc
   curl https://raw.githubusercontent.com/collettiquette/warp/master/config/tmux.conf --output ~/.warp/tmux.conf
 }
@@ -21,6 +23,8 @@ main() {
   download_files
   install_tmux_conf
   install_vimrc
+  exec $SHELL
+  curl https://raw.githubusercontent.com/collettiquette/warp/master/bin/tmux-session.sh | bash
 }
 
 main "$@"
