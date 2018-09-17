@@ -1,8 +1,7 @@
 #!/bin/bash -ex
 
 download_files() {
-  mkdir ~/.warp
-  mkdir ~/.warp/bin
+  mkdir -p ~/.warp/bin
 
   curl https://raw.githubusercontent.com/collettiquette/warp/master/config/vimrc --output ~/.warp/vimrc
   curl https://raw.githubusercontent.com/collettiquette/warp/master/config/tmux.conf --output ~/.warp/tmux.conf
