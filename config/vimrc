@@ -1,0 +1,36 @@
+" Style
+" set relativenumber    " relative line numbering
+set number              " normal line numbers
+syntax on
+syntax enable
+colo slate              " awesome colorscheme
+set hlsearch            " highlights searched text
+
+" Tabs act as 2 spaces
+set smartindent
+set ts=2                " tabstop
+set sw=2                " shiftwidth (how many cols text is indented with motion)
+set sts=2               " softabstop
+set et                  " expandtab
+set backspace=2         " make backspace work like most other apps
+set number
+
+" Status Line
+set laststatus=2
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Typescript
+filetype plugin on
+au BufRead,BufNewFile *.ts  setlocal filetype=typescript
+autocmd FileType typescript setlocal completeopt+=menu,preview
+
+" Show colored line at 81 characters
+if exists('+colorcolumn')
+  set colorcolumn=81
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>81v.\+', -1)
+endif
+
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
