@@ -2,8 +2,8 @@
 
 download_files() {
   mkdir ~/.warp
-  curl https://github.com/collettiquette/warp/blob/master/config/vimrc --output ~/.warp/vimrc
-  curl https://github.com/collettiquette/warp/blob/master/config/tmux.conf --output ~/.warp/tmux.conf
+  curl https://raw.githubusercontent.com/collettiquette/warp/master/config/vimrc --output ~/.warp/vimrc
+  curl https://raw.githubusercontent.com/collettiquette/warp/master/config/tmux.conf --output ~/.warp/tmux.conf
 }
 
 install_tmux_conf() {
