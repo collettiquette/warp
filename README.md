@@ -2,4 +2,4 @@
 
 ### Install
 
-`curl -s https://warp.ha1.io | bash -e`
+`curl -sL warp.ha1.io | bash -e`
