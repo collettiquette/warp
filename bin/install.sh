@@ -7,7 +7,6 @@ download_files() {
   curl https://raw.githubusercontent.com/collettiquette/warp/master/config/tmux.conf --output ~/.warp/tmux.conf
   curl https://raw.githubusercontent.com/collettiquette/warp/master/bin/tmux-session.sh --output ~/.warp/bin/tmux-session.sh
   chmod +x ~/.warp/bin/tmux-session.sh
-  alias ktmux=~/.warp/bin/tmux-session.sh
 }
 
 install_tmux_conf() {
@@ -32,6 +31,7 @@ main() {
   install_tmux_conf
   install_vimrc
   exec $SHELL
+  alias ktmux=~/.warp/bin/tmux-session.sh
 }
 
 main "$@"
