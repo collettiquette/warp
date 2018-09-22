@@ -1,5 +1,5 @@
 #!/bin/bash -ex
 
 main() {
-  alias ktmux=~/.warp/bin/tmux-session.sh
+  alias tmux=~/.config/warp/bin/tmux-session.sh
 }
