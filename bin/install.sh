@@ -30,18 +30,18 @@ setup() {
   mkdir -p ~/.warp/config
 
   # Run install scripts
-  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-tmux.sh | bash $os
-  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-htop.sh | bash $os
-  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-neovim.sh | bash $os
-  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-plug.sh | bash $os
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-tmux.sh | bash $os
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-htop.sh | bash $os
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-neovim.sh | bash $os
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-plug.sh | bash $os
 
   # Download config files
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/config/vimrc --output ~/.warp/config/vimrc
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/config/tmux.conf --output ~/.warp/config/tmux.conf
 
   # Run setup scripts
-  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/tmux-session.sh | bash $os
-  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/aliases.sh | source
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/tmux-session.sh | bash $os
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/aliases.sh | source
 }
 
 main() {
