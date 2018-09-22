@@ -17,3 +17,9 @@ install_tmux() {
   make install
 }
 
+main() {
+  install_libevent
+  install_tmux
+}
+
+main "$@"
