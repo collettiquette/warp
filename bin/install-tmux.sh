@@ -10,7 +10,7 @@ install_libevent() {
 
 install_tmux() {
   curl -L https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz -o ~/.warp/tmux-2.2.tar.gz
-  cd ~/.warp && tar xvf tmux-2.2
+  cd ~/.warp && tar xvf tmux-2.2.tar.gz
   cd ~/.warp/tmux-2.2 && ./configure --prefix=$HOME/.warp CFLAGS="-I$HOME/.warp/include" LDFLAGS="-L$HOME/.warp/lib"
   cd ~/.warp/tmux-2.2 && make
   cd ~/.warp/tmux-2.2 && make install
