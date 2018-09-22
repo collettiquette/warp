@@ -36,6 +36,7 @@ install_neovim() {
 
 main() {
 	local os="$1"
+  echo "This is the os: $os"
 	install_neovim $os
 }
 

@@ -41,7 +41,8 @@ setup() {
 
   # Run setup scripts
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/tmux-session.sh | bash $os
-  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/aliases.sh | source
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/aliases.sh --output ~/.warp/bin/aliases.sh
+  source  ~/.warp/bin/aliases.sh
 }
 
 main() {
