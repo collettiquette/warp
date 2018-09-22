@@ -5,3 +5,5 @@ main() {
   alias vim=~/.warp/bin/nvim
   alias htop=~/.warp/bin/htop
 }
+
+main "$@"

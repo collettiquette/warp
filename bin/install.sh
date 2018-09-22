@@ -31,7 +31,6 @@ setup() {
 
   # Run install scripts
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-tmux.sh | bash -s $os
-  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-htop.sh | bash -s $os
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-neovim.sh | bash -s $os
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-plug.sh | bash -s $os
 

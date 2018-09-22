@@ -16,7 +16,7 @@ install_neovim_linux() {
   curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $install_dir
 	chmod u+x $install_dir
 
-	mv ~/.warp/bin/nvim.appimage ~/.warp/bin/nvim
+	mv ~/.warp/nvim.appimage ~/.warp/bin/nvim
 }
 
 
@@ -36,7 +36,6 @@ install_neovim() {
 
 main() {
 	local os="$1"
-  echo "This is the os: $os"
 	install_neovim $os
 }
 
