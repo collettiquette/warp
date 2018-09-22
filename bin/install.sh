@@ -1,38 +1,53 @@
 #!/bin/bash -ex
 
-download_files() {
+hostos=$(uname -s)
+
+host_os() {
+  if [[ $hostos == "Darwin" ]]; then
+    echo "MacOS"
+  else
+    echo $(cat /etc/*release | sed -n 5p | grep -oP '(?<==).*' | awk '{ print $1 }' | tr -d '"')
+  fi
+  return 0
+}
+
+is_valid_os() {
+  local os="$1"
+
+  if [[ $os == "MacOS" || $os == "Ubuntu" || $os == "Debian" || $os == "rhel" ]]; then
+    return 0
+  else
+    echo "Error: Unsupported OS. Cancelling Install."
+    exit 1
+  fi
+}
+
+setup() {
+  local os="$1"
+
+  # Make directories for sandbox environment
   mkdir -p ~/.warp/bin
+  mkdir -p ~/.warp/config
 
-  curl https://raw.githubusercontent.com/collettiquette/warp/master/config/vimrc --output ~/.warp/vimrc
-  curl https://raw.githubusercontent.com/collettiquette/warp/master/config/tmux.conf --output ~/.warp/tmux.conf
-  curl https://raw.githubusercontent.com/collettiquette/warp/master/bin/tmux-session.sh --output ~/.warp/bin/tmux-session.sh
-  curl https://raw.githubusercontent.com/collettiquette/warp/master/bin/aliases.sh --output ~/.warp/bin/aliases.sh
-  chmod +x ~/.warp/bin/tmux-session.sh
-  chmod +x ~/.warp/bin/aliases.sh
-}
+  # Run install scripts
+  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-tmux.sh | bash $os
+  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-htop.sh | bash $os
+  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-neovim.sh | bash $os
+  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-plug.sh | bash $os
 
-install_tmux_conf() {
-  if [[ -e ~/.tmux.conf ]]; then
-    mv ~/.tmux.conf ~/.tmux.conf.bak
-  fi
+  # Download config files
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/config/vimrc --output ~/.warp/config/vimrc
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/config/tmux.conf --output ~/.warp/config/tmux.conf
 
-  mv ~/.warp/tmux.conf ~/.tmux.conf
-}
-
-install_vimrc() {
-  if [[ -e ~/.vimrc ]]; then
-    mv ~/.vimrc ~/.vimrc.bak
-  fi
-
-  mv ~/.warp/vimrc ~/.vimrc
+  # Run setup scripts
+  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/tmux-session.sh | bash $os
+  curl -sL https://raw.githubusercontent.com/collettiquette/warp/master/bin/aliases.sh | source
 }
 
 main() {
-  download_files
-  install_tmux_conf
-  install_vimrc
-  exec $SHELL
-  source ~/.warp/bin/aliases.sh
+  local os=$(host_os)
+  is_valid_os $os
+  setup $os
 }
 
 main "$@"
