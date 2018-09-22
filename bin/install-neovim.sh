@@ -3,7 +3,7 @@
 install_neovim_mac() {
 	local install_dir=~/.warp/nvim-macos.tar.gz
 
-	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -o $install_dir
+	curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz -o $install_dir
 	tar xzf $install_dir
 	rm -rf $install_dir
 
@@ -13,7 +13,7 @@ install_neovim_mac() {
 install_neovim_linux() {
 	local install_dir=~/.warp/nvim.appimage
 
-  curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $install_dir
+  curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $install_dir
 	chmod u+x $install_dir
 
 	mv ~/.warp/nvim.appimage ~/.warp/bin/nvim
