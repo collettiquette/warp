@@ -8,11 +8,11 @@ install_tmux() {
   fi
 
   if [[ $os == "Ubuntu" || $os == "Debian" ]]; then
-    sudo apt-get install tmux
+    sudo apt-get install -y tmux
   fi
 
   if [[ $os == "rhel" ]]; then
-    sudo yum install tmux
+    sudo yum install -y tmux
   fi
 }
 
