@@ -35,8 +35,10 @@ install_neovim() {
 }
 
 main() {
+  echo "Neovim: Checking installation..."
 	local os="$1"
 	install_neovim $os
+  echo "Neovim: Installing..."
 }
 
 main "$@"

@@ -17,10 +17,12 @@ install_tmux() {
 }
 
 main() {
+  echo "Tmux: Checking installation..."
   local os="$1"
   if tmux -V; then
-    echo "Tmux already installed."
+    echo "Tmux: Already installed!"
   else
+    echo "Tmux: Installing..."
     install_tmux $os
   fi
 }

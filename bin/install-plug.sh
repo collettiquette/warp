@@ -6,6 +6,8 @@ install_plug() {
 }
 
 main() {
+  echo "Plug: Checking installation..."
+  echo "Plug: Installing..."
   install_plug
 }
 
