@@ -16,7 +16,8 @@ install_neovim_linux() {
   curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $install_dir
 	chmod u+x $install_dir
 
-	mv ~/.warp/nvim.appimage ~/.warp/bin/nvim
+	cd ~/.warp && ~/.warp/nvim.appimage --appimage-extract
+  mv ~/.warp/squashfs-root/AppRun ~/.warp/bin/nvim
 }
 
 

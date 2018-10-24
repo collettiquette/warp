@@ -32,18 +32,18 @@ setup() {
   cat ~/.warp/config/warp.ascii
 
   # Run install scripts
-  echo "Warp: Installing dependencies..."
+  echo "Warp: Checking dependencies..."
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-tmux.sh | bash -s $os
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-neovim.sh | bash -s $os
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-plug.sh | bash -s $os
 
   # Download config files
-  echo "Warp: Download configuration..."
+  echo "Warp: Downloading configuration..."
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/config/vimrc --output ~/.warp/config/vimrc
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/config/tmux.conf --output ~/.warp/config/tmux.conf
 
   # Run setup scripts
-  echo "Warp: Download setup utilities..."
+  echo "Warp: Downloading setup utilities..."
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/tmux-session.sh --output ~/.warp/bin/tmux-session.sh
   curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/aliases.sh --output ~/.warp/bin/aliases.sh
 
