@@ -10,16 +10,32 @@ install_neovim_mac() {
 	mv ~/.warp/.nvim-osx64/bin/nvim ~/.warp/bin/nvim
 }
 
-install_neovim_linux() {
+install_neovim_debian() {
+  local user="$(whoami)"
+  sudo apt install fuse
+  sudo modprobe fuse
+  sudo groupadd fuse
+
+  sudo usermod -a -G fuse $user
+  install_neovim
+}
+
+install_neovim_rhel() {
+  local user="$(whoami)"
+  yum --enablerepo=epel -y install fuse-sshfs # install from EPEL
+  usermod -a -G fuse "$user"
+  install_neovim
+}
+
+
+install_appimage() {
 	local install_dir=~/.warp/nvim.appimage
 
   curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $install_dir
 	chmod u+x $install_dir
 
-	cd ~/.warp && ~/.warp/nvim.appimage --appimage-extract
-  mv ~/.warp/squashfs-root/AppRun ~/.warp/bin/nvim
+	mv ~/.warp/nvim.appimage ~/.warp/bin/nvim
 }
-
 
 install_neovim() {
 	local os="$1"
@@ -28,8 +44,12 @@ install_neovim() {
 		install_neovim_mac
   fi
 
-  if [[ $os == "Ubuntu" || $os == "Debian" || $os == "rhel" ]]; then
-		install_neovim_linux
+  if [[ $os == "Ubuntu" || $os == "Debian" ]]; then
+		install_neovim_debian
+  fi
+
+  if [[ $os == "rhel" ]]; then
+    install_neovim_rhel
   fi
 
   return 0
