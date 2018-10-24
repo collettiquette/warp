@@ -17,7 +17,7 @@ install_neovim_debian() {
   sudo groupadd fuse
 
   sudo usermod -a -G fuse $user
-  install_neovim
+  install_appimage
 }
 
 install_neovim_rhel() {
@@ -26,7 +26,7 @@ install_neovim_rhel() {
   sudo yum --enablerepo=epel -y install fuse-sshfs # install from EPEL
   sudo groupadd fuse
   sudo usermod -a -G fuse "$user"
-  install_neovim
+  install_appimage
 }
 
 
