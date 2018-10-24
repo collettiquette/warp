@@ -10,6 +10,15 @@ install_neovim_mac() {
 	mv ~/.warp/.nvim-osx64/bin/nvim ~/.warp/bin/nvim
 }
 
+install_appimage() {
+	local install_dir=~/.warp/nvim.appimage
+
+  curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $install_dir
+	chmod u+x $install_dir
+
+	mv $install_dir ~/.warp/bin/nvim
+}
+
 install_neovim_debian() {
   local user="$(whoami)"
   sudo apt install fuse
@@ -27,16 +36,6 @@ install_neovim_rhel() {
   sudo groupadd fuse
   sudo usermod -a -G fuse "$user"
   install_appimage
-}
-
-
-install_appimage() {
-	local install_dir=~/.warp/nvim.appimage
-
-  curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $install_dir
-	chmod u+x $install_dir
-
-	mv ~/.warp/nvim.appimage ~/.warp/bin/nvim
 }
 
 install_neovim() {
@@ -60,8 +59,9 @@ install_neovim() {
 main() {
   echo "Neovim: Checking installation..."
 	local os="$1"
-	install_neovim $os
   echo "Neovim: Installing..."
+	install_neovim $os
+  echo "Neovim: Installed!"
 }
 
 main "$@"
