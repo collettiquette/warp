@@ -11,31 +11,32 @@ install_neovim_mac() {
 }
 
 install_appimage() {
+  echo "Neovim: Installing appimage..."
 	local install_dir=~/.warp/nvim.appimage
 
   curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $install_dir
-	chmod u+x $install_dir
+	sudo chmod u+x $install_dir
 
 	mv $install_dir ~/.warp/bin/nvim
 }
 
 install_neovim_debian() {
+  echo "Neovim: Installing fuse for debian..."
   local user="$(whoami)"
   sudo apt install fuse
   sudo modprobe fuse
   sudo groupadd fuse
 
   sudo usermod -a -G fuse $user
-  install_appimage
 }
 
 install_neovim_rhel() {
+  echo "Neovim: Installing fuse for rhel..."
   local user="$(whoami)"
   sudo yum -y install epel-release
   sudo yum --enablerepo=epel -y install fuse-sshfs # install from EPEL
   sudo groupadd fuse
   sudo usermod -a -G fuse "$user"
-  install_appimage
 }
 
 install_neovim() {
@@ -47,13 +48,13 @@ install_neovim() {
 
   if [[ $os == "Ubuntu" || $os == "Debian" ]]; then
 		install_neovim_debian
+    install_appimage
   fi
 
   if [[ $os == "rhel" ]]; then
     install_neovim_rhel
+    install_appimage
   fi
-
-  return 0
 }
 
 main() {
