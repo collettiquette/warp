@@ -22,8 +22,8 @@ install_neovim_debian() {
 
 install_neovim_rhel() {
   local user="$(whoami)"
-  yum --enablerepo=epel -y install fuse-sshfs # install from EPEL
-  usermod -a -G fuse "$user"
+  sudo yum --enablerepo=epel -y install fuse-sshfs # install from EPEL
+  sudo usermod -a -G fuse "$user"
   install_neovim
 }
 
