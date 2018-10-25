@@ -53,7 +53,7 @@ setup() {
   chmod +x ~/.warp/bin/aliases.sh
 
   echo "Warp: Alias utilities..."
-  bash -c "source  ~/.warp/bin/aliases.sh"
+  . ~/.warp/bin/aliases.sh
 }
 
 main() {
