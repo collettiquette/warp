@@ -33,9 +33,10 @@ setup() {
 
   # Run install scripts
   echo "Warp: Checking dependencies..."
-  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-tmux.sh | bash -s $os
-  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-neovim.sh | bash -s $os
-  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-plug.sh | bash -s $os
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-tmux.sh | bash -es $os
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-htop.sh | bash -es $os
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-neovim.sh | bash -es $os
+  curl -s https://raw.githubusercontent.com/collettiquette/warp/master/bin/install-plug.sh | bash -es $os
 
   # Download config files
   echo "Warp: Downloading configuration..."
