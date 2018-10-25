@@ -1,6 +1,5 @@
 " Style
 " set relativenumber    " relative line numbering
-set number              " normal line numbers
 syntax on
 syntax enable
 colo slate              " awesome colorscheme
@@ -13,7 +12,7 @@ set sw=2                " shiftwidth (how many cols text is indented with motion
 set sts=2               " softabstop
 set et                  " expandtab
 set backspace=2         " make backspace work like most other apps
-set number
+set number              " normal line numbers
 
 " Status Line
 set laststatus=2

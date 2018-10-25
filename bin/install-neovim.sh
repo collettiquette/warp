@@ -11,7 +11,7 @@ install_neovim_mac() {
 }
 
 install_appimage() {
-  echo "Neovim: Installing appimage..."
+  echo "Neovim: Installing the appimage..."
 	local install_dir=~/.warp/nvim.appimage
 
   curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o $install_dir

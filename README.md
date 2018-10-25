@@ -10,15 +10,16 @@ Utility to quickly setup my preferred development environment.
 * Fedora / CentOS / RHEL
 
 ## What it Installs
-* Libevent
 * Tmux
 * Neovim
 * Plug
 * Htop
 
+## Configuration it Loads
+* Tmux conf
+* vimrc
+
 ## What it Aliases
 * tmux (starts with pane/window configuration)
 * vim (specific neovim install)
-* t (tree)
-* kdel (deletes environment)
 
