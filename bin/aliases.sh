@@ -1,8 +1,3 @@
-#!/bin/bash -ex
 
-main() {
-  alias tmux=~/.warp/bin/tmux-session.sh
-  alias vim="~/.warp/bin/nvim -u ~/.warp/config/vimrc"
-}
-
-main "$@"
+alias tmux=~/.warp/bin/tmux-session.sh
+alias vim="~/.warp/bin/nvim -u ~/.warp/config/vimrc"
